@@ -10,13 +10,21 @@
             <h1>Forecaster</h1>
             <input id="search" type="text" placeholder="Search cities..." autocomplete="off">
         </div>
-        <div id="dataBlock">
-            <h2 id="loc"></h2>
-            <h2 id="weather"></h2>
-            <h3 id="temp">Temperature: </h3>
-            <h3 id="low">Low: </h3>
-            <h3 id="high">High: </h3>
-            <h3 id="humidity">Humidity: </h3>
+        <div id="weatherForcast">
+            <div class="dataBlock" id="mainInfo">
+                <h2 id="loc"></h2>
+                <h2 id="weather"></h2>
+                <h3 id="temp">Temperature: </h3>
+                <h3 id="low">Low: </h3>
+                <h3 id="high">High: </h3>
+            </div>
+            <div class="dataBlock" id="additionalInfo">
+                <h3 id="sunrise">Sunrise: </h3>
+                <h3 id="sunset">Sunset: </h3>
+                <h3 id="wind">Wind: </h3>
+                <h3 id="humidity">Humidity: </h3>
+                <h3>Units: C</h3>
+            </div>
         </div>
         <script src="main.js"></script>
     </body>

@@ -54,8 +54,15 @@ input:focus{
     width: 200px;
 }
 
-#dataBlock {
+#weatherForcast {
+    
+    align-self: center;
+    justify-content: center;
+}
+
+.dataBlock {
     margin: auto;
+    margin-bottom: 30px;
     width: 300px;
     padding: 10px;
     position: relative;
@@ -68,14 +75,28 @@ input:focus{
     transition: top ease 0.5s;
 }
 
-#dataBlock > h2 {
+.dataBlock > h2 {
     color: #303f9f;
 }
 
-#dataBlock > h3 {
+.dataBlock > h3 {
     color: #303f9f;
 }
 
-#dataBlock:hover {
+.dataBlock:hover {
     top: -20px;
+}
+
+#additionalInfo {
+    opacity: 0;
+    transform: translateY(20vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease, transform 1.2s ease, top ease 0.5s;
+    will-change: opacity, visibility;
+}
+
+#additionalInfo.isVisible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
 }

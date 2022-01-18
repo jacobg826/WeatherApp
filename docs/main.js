@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    font-family: 'Roboto', monospace;\r\n    color: #F0F4F8;\r\n}\r\n\r\nbody {\r\n    background-color: #102A43;\r\n}\r\n\r\n#header {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-content: center;\r\n    margin:30px;\r\n    height: 45px;\r\n}\r\n\r\nh1{\r\n    height: 40px;\r\n    margin: 0;\r\n    padding: 8px;\r\n    transition: color ease 0.5s; \r\n}\r\n\r\nh1:hover{\r\n    color: #829AB1;\r\n}\r\n\r\nh2 {\r\n    display: block;\r\n    font-size: 1.5em;\r\n    margin-top: 0.83em;\r\n    margin-bottom: 0.83em;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n    font-weight: bold;\r\n}\r\n\r\ninput{\r\n    width: 125px;\r\n    padding-left: 10px;\r\n    height: 40px;\r\n    border-radius: 30px;\r\n    color: #102A43;\r\n    transition: width 0.5s;\r\n}\r\n\r\ninput:hover {\r\n    width: 200px;\r\n}\r\n\r\ninput:focus{\r\n    width: 200px;\r\n}\r\n\r\n#dataBlock {\r\n    margin: auto;\r\n    width: 300px;\r\n    padding: 10px;\r\n    position: relative;\r\n    border-right: 4px solid red;\r\n    background-color: #F0F4F8;\r\n    border-radius: 10px;\r\n    color: #303f9f;\r\n    justify-content: center;\r\n    top: 0;\r\n    transition: top ease 0.5s;\r\n}\r\n\r\n#dataBlock > h2 {\r\n    color: #303f9f;\r\n}\r\n\r\n#dataBlock > h3 {\r\n    color: #303f9f;\r\n}\r\n\r\n#dataBlock:hover {\r\n    top: -20px;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n    font-family: 'Roboto', monospace;\r\n    color: #F0F4F8;\r\n}\r\n\r\nbody {\r\n    background-color: #102A43;\r\n}\r\n\r\n#header {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    align-content: center;\r\n    margin:30px;\r\n    height: 45px;\r\n}\r\n\r\nh1{\r\n    height: 40px;\r\n    margin: 0;\r\n    padding: 8px;\r\n    transition: color ease 0.5s; \r\n}\r\n\r\nh1:hover{\r\n    color: #829AB1;\r\n}\r\n\r\nh2 {\r\n    display: block;\r\n    font-size: 1.5em;\r\n    margin-top: 0.83em;\r\n    margin-bottom: 0.83em;\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n    font-weight: bold;\r\n}\r\n\r\ninput{\r\n    width: 125px;\r\n    padding-left: 10px;\r\n    height: 40px;\r\n    border-radius: 30px;\r\n    color: #102A43;\r\n    transition: width 0.5s;\r\n}\r\n\r\ninput:hover {\r\n    width: 200px;\r\n}\r\n\r\ninput:focus{\r\n    width: 200px;\r\n}\r\n\r\n#weatherForcast {\r\n    \r\n    align-self: center;\r\n    justify-content: center;\r\n}\r\n\r\n.dataBlock {\r\n    margin: auto;\r\n    margin-bottom: 30px;\r\n    width: 300px;\r\n    padding: 10px;\r\n    position: relative;\r\n    border-right: 4px solid red;\r\n    background-color: #F0F4F8;\r\n    border-radius: 10px;\r\n    color: #303f9f;\r\n    justify-content: center;\r\n    top: 0;\r\n    transition: top ease 0.5s;\r\n}\r\n\r\n.dataBlock > h2 {\r\n    color: #303f9f;\r\n}\r\n\r\n.dataBlock > h3 {\r\n    color: #303f9f;\r\n}\r\n\r\n.dataBlock:hover {\r\n    top: -20px;\r\n}\r\n\r\n#additionalInfo {\r\n    opacity: 0;\r\n    transform: translateY(20vh);\r\n    visibility: hidden;\r\n    transition: opacity 0.6s ease, transform 1.2s ease, top ease 0.5s;\r\n    will-change: opacity, visibility;\r\n}\r\n\r\n#additionalInfo.isVisible {\r\n    opacity: 1;\r\n    transform: none;\r\n    visibility: visible;\r\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -550,6 +550,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const input = document.getElementById('search');
 
+const mainPanel = document.getElementById('mainInfo');
+const additionalPanel = document.getElementById('additionalInfo');
+const dataBlock = document.getElementsByClassName('dataBlock');
+
 const location = document.getElementById('loc');
 const weather = document.getElementById('weather');
 const temp = document.getElementById('temp');
@@ -557,19 +561,30 @@ const low = document.getElementById('low');
 const high = document.getElementById('high');
 const humidity = document.getElementById('humidity');
 
-// function kelvinToCelcius(tempInKelvin) {
-//   return (tempInKelvin - 273.15).toFixed(2);
-// }
-
-// function kelvinToFahrenheit(tempInKelvin) {
-//   return ((tempInKelvin - 273.15) * (9 / 5) + 32).toFixed(2);
-// }
+const sunrise = document.getElementById('sunrise');
+const sunset = document.getElementById('sunset');
+const wind = document.getElementById('wind');
 
 function getTemp(tempInKelvin, units) {
   if (units === 'C') {
     return `${(tempInKelvin - 273.15).toFixed(2)} \u00B0C`;
   }
   return `${((tempInKelvin - 273.15) * (9 / 5) + 32).toFixed(2)} \u00B0F`;
+}
+
+function getTime(time, timezone) {
+  const today = new Date(time * 1000 + (timezone * 1000));
+  let hours = today.getUTCHours();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  let min = today.getUTCMinutes();
+  if (min < 10) {
+    min = `0${min}`;
+  }
+  hours %= 12;
+  if (hours === 0) {
+    hours = 12;
+  }
+  return `${hours}:${min}${ampm}`;
 }
 
 async function getData(query) {
@@ -587,7 +602,10 @@ async function readData(query) {
   temp.textContent = `Temperature: ${getTemp(weatherData.main.temp, 'C')}`;
   low.textContent = `Low: ${getTemp(weatherData.main.temp_min, 'C')}`;
   high.textContent = `High: ${getTemp(weatherData.main.temp_max, 'C')}`;
-  humidity.textContent = `Humidity ${weatherData.main.humidity}`;
+  humidity.textContent = `Humidity: ${weatherData.main.humidity}`;
+  sunrise.textContent = `Sunrise: ${getTime(weatherData.sys.sunrise, weatherData.timezone)}`;
+  sunset.textContent = `Sunset: ${getTime(weatherData.sys.sunset, weatherData.timezone)}`;
+  wind.textContent = `Wind: ${weatherData.wind.speed}`;
 }
 
 readData('bellingham');
@@ -598,6 +616,16 @@ input.addEventListener('keydown', (e) => {
     input.blur();
     input.value = '';
   }
+});
+
+Array.from(dataBlock).forEach((block) => {
+  block.addEventListener('click', () => {
+    if (additionalPanel.classList.contains('isVisible')) {
+      additionalPanel.classList.remove('isVisible');
+    } else {
+      additionalPanel.classList.add('isVisible');
+    }
+  });
 });
 
 })();
